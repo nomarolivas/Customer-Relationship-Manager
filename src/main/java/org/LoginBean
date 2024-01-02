@@ -1,0 +1,30 @@
+
+import java.io.Serializable;
+
+public class LoginBean implements Serializable{
+
+    private static final long serialVer = 1 L;
+    private String username;
+    private String password;
+
+
+    public void setUsername{
+        this.username = username;
+    }
+
+    public void setPassword{
+            this.password = password;
+        }
+
+    public String getUsername{
+        return username;
+    }
+
+    public String getPassword{
+        return password;
+
+    }
+
+
+
+}
