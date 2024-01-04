@@ -17,9 +17,27 @@ public class loginDao {
             ResultSet result = preparedStatement.executeQuery();
             status= result.next();
         } catch (SQLException e){
-//            printSQLException(e);
+            printSQLException(e);
         }
         return status;
+    }
+
+
+    private void printSQLException( SQLException ex){
+        for (Throwable e: ex){
+            if ( e instanceof SQLException){
+                e.printStackTrace(System.err);
+                System.err.println("SQLState: " + ((SQLException) e).getSQLState());
+                System.err.println("Error Code: " + ((SQLException) e).getErrorCode());
+                System.err.println("Message: " + e.getMessage());
+                Throwable throwable = ex.getCause();
+                while (throwable != null){
+                    System.out.println("Error Cause: " +throwable);
+                    throwable= throwable.getCause();
+                }
+
+            }
+        }
     }
 
 
